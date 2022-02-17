@@ -12,6 +12,7 @@ Microsoft provides Internet Information Services (IIS) that can be used as a web
 
 ## Step 2: Change Default Physical Path
 If you don't want to change the default path, you can skip this step. All the files can be located at the default path **C:\inetpub\wwwroot\\**
+
 Open IIS Manager (WindowsKey+S then type IIS). The **Default Site** stores its files in a particular directory. To expose this information, right-click on it, choose **Manage Website** then **Advanced Settings**. This will open a pop-up window with all of the Default Sites information such as files or Document Root as it is normally known, enabled protocols, and even bindings. If you click on **Physical Path** a button appears on its extreme right where you can choose a different document root.
 
 <img src="https://github.com/iamgmujtaba/hls-server/blob/master/figures/iis_path.jpg" width="550" height="200">
