@@ -8,14 +8,17 @@ Microsoft provides Internet Information Services (IIS) that can be used as a web
 3. Test it by opening Chrome and navigating to your local internet address, **127.0.0.1**.
 4. The default page should appear (If not reboot your system).
 
-<img src="https://github.com/iamgmujtaba/hls_server/figures/iis_home.jpg" width="550" height="200">
+<img src="https://github.com/iamgmujtaba/hls-server/blob/master/figures/iis_home.jpg" width="550" height="200">
 
 ## Step 2: Change Default Physical Path
-If you don't want to change the default path, you can skip this step. All the files can be located at the default path **C:\inetpub\wwwroot\**
+If you don't want to change the default path, you can skip this step. All the files can be located at the default path **C:\inetpub\wwwroot\**.
+<!-- #### 1: Open Default Site: 
+Open IIS Manager (WindowsKey+S then type IIS) and then open **Server Manager**. Click on **Tools** and choose **Internet Information Services (IIS) Manager** from the drop-down menu. Once your IIS Manager is open, expand the Server name below **Start Page** and further expand the **Sites** folder to expose the default site. -->
 
+<!-- #### 2: Change Path: -->
 Open IIS Manager (WindowsKey+S then type IIS). The **Default Site** stores its files in a particular directory. To expose this information, right-click on it, choose **Manage Website** then **Advanced Settings**. This will open a pop-up window with all of the Default Sites information such as files or Document Root as it is normally known, enabled protocols, and even bindings. If you click on **Physical Path** a button appears on its extreme right where you can choose a different document root.
 
-<img src="https://github.com/iamgmujtaba/hls_server/figures/iis_path.jpg" width="550" height="200">
+<img src="https://github.com/iamgmujtaba/hls-server/blob/master/figures/iis_path.jpg" width="550" height="200">
 
 ## Step 3: Enabling Cross-origin resource sharing (CORS)
 To test streams, you need to allow other websites to access files on your web server. However, due to security concerns, not all modern browsers allow this by default. To allow this, you need to explicitly tell the browser that you agree to a website to read data from your server. This is called cross-source resource sharing (CORS). To enable CORS to follow the below steps:
@@ -24,7 +27,7 @@ To test streams, you need to allow other websites to access files on your web se
 3. Select **Open Feature** from the Action. Then, click Add and Type in **Access-Control-Allow-Origin** for Name and type "*" for Value.
 4. Click OK to add the header to add another value: type in **Access-Control-Allow-Headers** for Name; type in **Range** for Value.
 
-<img src="https://github.com/iamgmujtaba/hls_server/figures/hrs_page.jpg" width="550" height="200">
+<img src="https://github.com/iamgmujtaba/hls-server/blob/master/figures/hrs_page.jpg" width="550" height="200">
 
 ## Step 4: Adding the HLS MIME Type
 HLS requires statements to learn how to analyze video and audio files. HLS manifest file ends in **.m3u8**. Windows IIS does not know about this extension. So, for IIS to correctly send the file to the player, you need to add this extension to IIS.
@@ -32,7 +35,7 @@ Under connections click your server and double Click MIME Types
 1. Type **.m3u8** for File name extension; type **application/hls+xml** for MIME-type
 2. Press okay.
 
-<img src="https://github.com/iamgmujtaba/hls_server/figures/mime.jpg" width="550" height="200">
+<img src="https://github.com/iamgmujtaba/hls-server/blob/master/figures/mime.jpg" width="550" height="200">
 
 ## Step 5: FFmpeg Installation
 You can skip Step 5 and Step 6, by downloading the processed video from [google drive](https://drive.google.com/drive/folders/1JS9lwJWr9pOibl9ZpOB6uAinh-PseZXG). After downloading the video place it into the default IIS physical path (i.e., C:\inetpub\wwwroot\) or the modified path.
@@ -67,6 +70,13 @@ If you do not have iPhone, install [VLC](https://www.videolan.org/vlc/download-w
 If you can watch the video, it means you have configured HLS on your window machine.
 #### Ubuntu or Jetson Devices
 If you want to use a native HLS web player, clone [hls.js](https://github.com/video-dev/hls.js/) from GitHub and follow the [installation](https://github.com/video-dev/hls.js/#getting-started-with-development) instructions.
+
+<!-- ## Step 5: MP4Box Installation
+1. Download MP4Box from [here](https://gpac.wp.imt.fr/downloads/gpac-nightly-builds/).
+2. Run the file to install GPAC. On the Select Component menu, make sure everything is checked, then click Next.
+### Check Installation
+Open cmd and type **mp4box -h** in command prompt. If you see a lot of text in the cmd, your mp4box is installed successfully.
+ -->
 
 ### References:
 1. https://en.wikipedia.org/wiki/HTTP_Live_Streaming
