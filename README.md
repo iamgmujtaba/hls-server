@@ -56,6 +56,11 @@ ffmpeg -i input.mp4 -force_key_frames "expr:gte(t,n_forced*10)" -strict -2 -c:a 
 ```
 5. Once the process is completed, copy all the files excluding **input.mp4** into the default IIS physical path (i.e., C:\inetpub\wwwroot\) or the modified path. 
 
+To generate segments from multiple videos, run the following script.
+```shell
+python .\main.py -i .\input\ -o .\output\
+```
+
 ## Step 7: Final Testing
 ### Check your IP Address
 Open cmd and type **ipconfig**. Get IPv4 Address. It would be 192.XXX.XXX.XXX.
