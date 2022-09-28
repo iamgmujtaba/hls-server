@@ -47,6 +47,10 @@ You can skip Step 5 and Step 6, by downloading the processed video from [google 
 Open cmd and type **ffmpeg** in the command prompt. If you see a lot of text in the cmd, your FFmpeg is installed successfully.
 
 ## Step 6: Prepare Workspace
+- Use __[vid2tc](https://github.com/iamgmujtaba/vid2tc)__ to generate thumbnail contaienrs and video segments from videos. 
+
+Or
+
 1. Download sample video [BigBuckBunny](https://download.blender.org/demo/movies/BBB/bbb_sunflower_1080p_30fps_normal.mp4).
 2. Rename the downloaded file to **input.mp4**
 3. Run the following command in the cmd in the same directory.
